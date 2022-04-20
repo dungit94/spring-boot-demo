@@ -1,0 +1,25 @@
+version: '3'
+services:
+  # Tạo image từ Dockerfile
+  # Port 8080 config mapping với port của server start
+  spring-boot-demo:
+    build: .
+    ports:
+    - '8889:8080'
+  # Pull có sẵn ở hub docker
+  spring-boot-pull-image:
+    image: dungnqitedu/spring-boot-image
+    ports:
+      - '8887:8888'
+  # PUll image jenkins
+  jenkins:
+    image: jenkins/jenkins:lts
+    privileged: true
+    user: root
+    ports:
+      - 8080:8080
+      - 50001:50000
+    container_name: jenkins
+    volumes:
+      - /home/${myname}/jenkins_compose/jenkins_configuration:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
