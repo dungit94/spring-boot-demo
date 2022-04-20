@@ -10,4 +10,9 @@ public class HelloWord {
     public ResponseEntity<String> helloword(){
         return ResponseEntity.ok("Wellcome to us!!!");
     }
+
+    @GetMapping("/demo")
+    public ResponseEntity<String> demo(){
+        return ResponseEntity.ok("Demo!!!");
+    }
 }
