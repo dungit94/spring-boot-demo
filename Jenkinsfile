@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './gradlew build'
+                echo 'Hello world Build!'
             }
         }
         stage('Test') {
             steps {
-                sh './gradlew test'
+                echo 'Hello world Test!'
             }
         }
     }
