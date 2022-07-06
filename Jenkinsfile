@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    docker {
+        image 'openjdk:11'
+        args '-v "$PWD":/app'
+        reuseNode true
+    }
     stages {
 //         stage('Build') {
 //             steps {
@@ -8,7 +13,7 @@ pipeline {
 //         }
         stage('Test') {
             steps {
-                sh 'gradle test'
+               sh './gradlew clean build'
             }
         }
     }
