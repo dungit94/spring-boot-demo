@@ -4,13 +4,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Welcome to clean!!!'
-                sh 'gradle build'
+                bat 'gradle build'
             }
         }
         stage('Test') {
             steps {
                 echo 'Hello test!!!'
-                sh 'gradle test'
+                bat 'gradle test'
             }
         }
     }
