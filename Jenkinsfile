@@ -19,12 +19,10 @@ pipeline {
         stage('Build Docker') {
             steps {
                 echo 'Welcome to Docker!!!'
-                bat 'docker build -t ${DOCKER_IMAGE}:docker .'
-				bat 'docker tag ${DOCKER_IMAGE}:docker ${DOCKER_IMAGE}:latest'
+                bat 'docker build -t dungnqitedu/spring-boot-image .'
 				withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'dungnq.itedu@gmail.com', passwordVariable: 'Bon@123456')]) {
 					bat 'echo Bon@123456 | docker login --username dungnq.itedu@gmail.com --password-stdin'
-					bat 'docker push ${DOCKER_IMAGE}:docker'
-					bat 'docker push ${DOCKER_IMAGE}:latest'
+					bat 'docker push dungnqitedu/spring-boot-image'
 				}
                 
             }
