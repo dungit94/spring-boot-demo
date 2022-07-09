@@ -21,7 +21,7 @@ pipeline {
                 echo 'Welcome to Docker!!!'
                 bat 'docker build -t dungnqitedu/spring-boot-image .'
 				withCredentials([usernamePassword(credentialsId: 'docker-hub', usernameVariable: 'dungnq.itedu@gmail.com', passwordVariable: 'Bon@123456')]) {
-					bat 'echo Bon@123456 | docker login --username dungnq.itedu@gmail.com --password-stdin'
+					bat 'docker login --username dungnq.itedu@gmail.com --password Bon@123456'
 					bat 'docker push dungnqitedu/spring-boot-image'
 				}
                 
