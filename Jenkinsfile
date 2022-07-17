@@ -4,6 +4,12 @@ pipeline {
         DOCKER_IMAGE = "dungnqitedu/spring-boot-image"
      }
     stages {
+        stage('Clean') {
+            steps {
+                echo 'Hello clean!!!'
+                sh 'gradle clean'
+            }
+        }
         stage('Test') {
             steps {
                 echo 'Hello test!!!'
